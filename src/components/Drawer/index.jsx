@@ -45,15 +45,15 @@ const Drawer = ({ onClose, onRemove, opened }) => {
   const renderCartItems = () => {
     return cartItems.map((obj) => (
       <div key={obj.id} className={styles.cart__item}>
-        <img src={obj.imageUrl} alt="ItemImage" />
+        <img src={obj.imageUrl} alt="Sneaker" />
         <div>
           <p>{obj.name}</p>
-          <b>{obj.price + " руб."}</b>
+          <b>{obj.price + " €"}</b>
         </div>
         <img
           className={styles.removeBtn}
           src="img/removeHover.svg"
-          alt="remove"
+          alt="Remove"
           onClick={() => onRemove(obj.id)}
         />
       </div>
@@ -66,25 +66,25 @@ const Drawer = ({ onClose, onRemove, opened }) => {
     >
       <div className={styles.drawer}>
         <h2>
-          Корзина
+          Cart
           <img
             className={styles.removeBtn}
             src="img/removeHover.svg"
-            alt="remove"
+            alt="Remove"
             onClick={onClose}
           />
         </h2>
         {cartHasItems ? (
-          <div className={styles.cartWithElements}>
-            <div className={styles.cartItems}>{renderCartItems()}</div>
-            <div className={styles.cartTotalBlock}>
+          <div className={styles.cart}>
+            <div className={styles.cart__items}>{renderCartItems()}</div>
+            <div className={styles.cart__totalBlock}>
               <ul>
                 <li>
-                  <span>Итого: </span> <div></div> <b>{totalPrice + " руб."}</b>
+                  <span>Total: </span> <div></div> <b>{totalPrice + " €"}</b>
                 </li>
                 <li>
-                  <span>Скидка 5%: </span> <div></div>
-                  <b>{discount + " руб."}</b>
+                  <span>Discount 5%: </span> <div></div>
+                  <b>{discount + " €"}</b>
                 </li>
               </ul>
               <button
@@ -92,19 +92,19 @@ const Drawer = ({ onClose, onRemove, opened }) => {
                 className={styles.greenButton}
                 onClick={onClickOrder}
               >
-                <span>Оформить заказ</span>
-                <img src="img/arrow.svg" alt="arrow" />
+                <span>Make order</span>
+                <img src="img/arrow.svg" alt="Arrow" />
               </button>
             </div>
           </div>
         ) : (
           <Info
-            title={isOrderComplete ? "Заказ оформлен!" : "Корзина пустая"}
+            title={isOrderComplete ? "Order is processed!" : "Cart is empty"}
             image={isOrderComplete ? "img/completeOrder.jpg" : "img/empty.png"}
             description={
               isOrderComplete
-                ? `Ваш заказ #${orderId} скоро будет передан курьерской доставке.`
-                : "Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ."
+                ? `Your order #${orderId} will soon be transferred to courier delivery.`
+                : "Add at least one pair of sneakers to place an order."
             }
           />
         )}

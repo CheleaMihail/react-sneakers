@@ -20,7 +20,7 @@ const Header = ({ onClickCart }) => {
       <ul className={styles.headerRight}>
         <li onClick={onClickCart}>
           <img src="img/shop.svg" alt="cart" />
-          <span>{totalPrice + " руб"}.</span>
+          <span>{totalPrice + " EUR"}</span>
         </li>
         <li>
           <Link to="/favorites">

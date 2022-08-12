@@ -46,18 +46,18 @@
     }
   }
 
-  .cartWithElements {
+  .cart {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
 
-    .cartItems {
+    &__items {
       flex: 1 1 420px;
       overflow: auto;
       margin-bottom: 40px;
     }
 
-    .cartTotalBlock {
+    &__totalBlock {
       ul {
         margin-bottom: 40px;
 
