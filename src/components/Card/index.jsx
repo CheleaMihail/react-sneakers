@@ -55,12 +55,12 @@ function Card({
               />
             </button>
           )}
-          <img width={133} height={112} src={imageUrl} alt="aaa" />
+          <img width={133} height={112} src={imageUrl} alt="Sneaker" />
           <p>{name}</p>
           <div className={styles.cardBottom}>
             <div>
-              <span>Цена:</span>
-              <b>{price} руб.</b>
+              <span>Price:</span>
+              <b>{price + " EUR"}</b>
             </div>
             {onPlus && (
               <button className={styles.button} onClick={onClickPlus}>

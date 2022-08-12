@@ -15,8 +15,8 @@ const Info = ({ title, image, description }) => {
           className={styles.greenButton}
           onClick={() => setCartOpened(false)}
         >
-          <span>Вернуться назад</span>
-          <img src="img/arrow.svg" alt="arrow" />
+          <span>Back</span>
+          <img src="img/arrow.svg" alt="Arrow" />
         </button>
       </div>
     </div>
