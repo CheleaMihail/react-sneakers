@@ -1,0 +1,180 @@
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out, visibility 0.1s ease-in-out;
+  overflow: hidden;
+}
+
+.overlayVisible {
+  visibility: visible;
+  opacity: 1;
+
+  .drawer {
+    transform: translateX(0);
+  }
+}
+
+.drawer {
+  position: absolute;
+  right: 0;
+  width: 420px;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+
+  h2 {
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      cursor: pointer;
+    }
+  }
+
+  .cartWithElements {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+
+    .cartItems {
+      flex: 1 1 420px;
+      overflow: auto;
+      margin-bottom: 40px;
+    }
+
+    .cartTotalBlock {
+      ul {
+        margin-bottom: 40px;
+
+        li {
+          display: flex;
+          align-items: baseline;
+          margin-bottom: 20px;
+
+          div {
+            flex: 1;
+            border-bottom: 1px dashed #dfdfdf;
+            margin: 0 5px;
+          }
+        }
+      }
+
+      .greenButton {
+        position: relative;
+
+        &:hover {
+          img {
+            transform: translateX(5px);
+          }
+        }
+
+        &:disabled {
+          animation: button-loading 0.8s ease-in-out infinite;
+        }
+
+        img {
+          position: absolute;
+          right: 30px;
+          top: 20px;
+          transition: transform 0.15s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+.cart__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #f3f3f3;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .removeBtn {
+    width: 32px;
+    height: 32px;
+    opacity: 0.5;
+    transition: opacity 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  div {
+    width: 150px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 5px;
+  }
+
+  b {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+.greenButton {
+  width: 100%;
+  height: 55px;
+  background: #9dd558;
+  border-radius: 18px;
+  border: 0;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+
+  &:hover {
+    background: lighten($color: #9dd558, $amount: 5%);
+  }
+
+  &:active {
+    background: darken($color: #9dd558, $amount: 5%);
+  }
+  &:disabled {
+    background: gray;
+    cursor: default;
+  }
+}
+
+@keyframes button-loading {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}

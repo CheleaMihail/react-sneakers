@@ -1,0 +1,16 @@
+.orders {
+  display: flex;
+  flex-direction: column;
+}
+.order {
+  margin-bottom: 20px;
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
