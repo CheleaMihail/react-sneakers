@@ -31,7 +31,7 @@ const Orders = () => {
   return (
     <div className="content">
       <div className="content__top" style={{ justifyContent: "flex-start" }}>
-        <Link to="/">
+        <Link to="">
           <img src="img/back.svg" alt="back" style={{ marginRight: "20px" }} />
         </Link>
         <h1>My orders</h1>
