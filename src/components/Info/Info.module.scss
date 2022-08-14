@@ -1,10 +1,10 @@
-.emptyCartContainer {
+.container {
   flex: 1 1 auto;
   display: flex;
   align-items: center;
 }
 
-.emptyCart {
+.info {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,43 +24,22 @@
     opacity: 0.4;
     margin-bottom: 10px;
   }
-
-  .greenButton {
-    position: relative;
-
-    &:hover {
-      img {
-        left: 25px;
-      }
-    }
-
-    img {
-      position: absolute;
-      transform: rotate(180deg);
-      left: 30px;
-      top: 20px;
-      transition: all 0.15s ease-in-out;
-    }
-  }
 }
 
 .greenButton {
-  width: 100%;
-  height: 55px;
-  background: #9dd558;
-  border-radius: 18px;
-  border: 0;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s ease-in-out;
+  position: relative;
 
   &:hover {
-    background: lighten($color: #9dd558, $amount: 5%);
+    img {
+      left: 25px;
+    }
   }
 
-  &:active {
-    background: darken($color: #9dd558, $amount: 5%);
+  img {
+    position: absolute;
+    transform: rotate(180deg);
+    left: 30px;
+    top: 20px;
+    transition: all 0.15s ease-in-out;
   }
 }

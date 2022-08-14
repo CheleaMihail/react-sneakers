@@ -1,15 +1,14 @@
 .overlay {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   left: 0px;
   top: 0px;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  z-index: 10;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.1s ease-in-out, visibility 0.1s ease-in-out;
-  overflow: hidden;
 }
 
 .overlayVisible {
@@ -22,7 +21,7 @@
 }
 
 .drawer {
-  position: absolute;
+  position: fixed;
   right: 0;
   width: 420px;
   height: 100%;
@@ -139,31 +138,6 @@
     font-weight: 700;
     font-size: 14px;
     line-height: 17px;
-  }
-}
-
-.greenButton {
-  width: 100%;
-  height: 55px;
-  background: #9dd558;
-  border-radius: 18px;
-  border: 0;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s ease-in-out;
-
-  &:hover {
-    background: lighten($color: #9dd558, $amount: 5%);
-  }
-
-  &:active {
-    background: darken($color: #9dd558, $amount: 5%);
-  }
-  &:disabled {
-    background: gray;
-    cursor: default;
   }
 }
 

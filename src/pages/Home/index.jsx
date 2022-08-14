@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 
-import AppContext from "../context";
-import Card from "../components/Card";
+import styles from "./Home.module.scss";
+import AppContext from "../../context";
+import Card from "../../components/Card";
+import SearchField from "../../components/UI/SearchField";
 
 const Home = ({
   searchValue,
@@ -29,30 +31,19 @@ const Home = ({
   };
 
   return (
-    <div className="content">
-      <div className="content__top">
+    <main className={styles.home}>
+      <div className={styles.home__top}>
         <h1>
           {searchValue ? `Results for "${searchValue}":` : "All sneakers"}
         </h1>
-        <div className="search">
-          <img width={14} height={14} src="img/search.svg" alt="search" />
-          <input
-            value={searchValue}
-            onChange={onChangeInputValue}
-            placeholder="Search..."
-          />
-          {searchValue && (
-            <img
-              onClick={() => setSearchValue("")}
-              className="clear"
-              src="img/removeHover.svg"
-              alt="clear"
-            />
-          )}
-        </div>
+        <SearchField
+          searchValue={searchValue}
+          onChange={onChangeInputValue}
+          resetInput={() => setSearchValue("")}
+        />
       </div>
-      <div className="sneakers">{renderItems()}</div>
-    </div>
+      <div className={styles.home__sneakers}>{renderItems()}</div>
+    </main>
   );
 };
 

@@ -27,68 +27,6 @@ a {
   border-radius: 20px;
 }
 
-.content {
-  padding: 40px;
-
-  h1 {
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 39px;
-    text-align: center;
-  }
-}
-
-.content__top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.search {
-  position: relative;
-  box-sizing: border-box;
-  width: 250px;
-  height: 45px;
-  border: 1px solid #f3f3f3;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-
-  img {
-    margin: 0px 10px 0px 15px;
-  }
-
-  input {
-    outline: none;
-    font-size: 14px;
-    line-height: 17px;
-    color: #c4c4c4;
-    padding: 5px;
-  }
-
-  .clear {
-    position: absolute;
-    height: 18px;
-    width: 18px;
-    top: 11px;
-    right: 0px;
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-      width: 20px;
-      height: 20px;
-      transform: translateY(-1px);
-    }
-  }
-}
-
-.sneakers {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 #root {
   height: 100%;
 }

@@ -1,23 +1,28 @@
-import React, { useContext } from "react";
+import React from "react";
+import classNames from "classnames";
 
-import AppContext from "../../context";
+import GreenButton from "../UI/GreenButton";
 import styles from "./Info.module.scss";
 
-const Info = ({ title, image, description }) => {
-  const { setCartOpened } = useContext(AppContext);
+const Info = ({
+  title,
+  image,
+  description,
+  btnTitle,
+  actionClick,
+  parentStyles,
+}) => {
   return (
-    <div className={styles.emptyCartContainer}>
-      <div className={styles.emptyCart}>
+    <div className={classNames(styles.container, parentStyles)}>
+      <div className={styles.info}>
         <img src={image} alt="emptyCart" />
-        <h3 className={styles.emptyCart__title}>{title}</h3>
-        <p className={styles.emptyCart__text}>{description}</p>
-        <button
-          className={styles.greenButton}
-          onClick={() => setCartOpened(false)}
-        >
-          <span>Back</span>
-          <img src="img/arrow.svg" alt="Arrow" />
-        </button>
+        <h3 className={styles.info__title}>{title}</h3>
+        <p className={styles.info__text}>{description}</p>
+        <GreenButton
+          parentStyle={styles.greenButton}
+          title={btnTitle}
+          handleClick={actionClick}
+        />
       </div>
     </div>
   );

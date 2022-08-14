@@ -8,9 +8,9 @@ const Header = ({ onClickCart }) => {
 
   return (
     <header>
-      <Link to="/">
+      <Link to="react-sneakers/">
         <div className={styles.headerLeft}>
-          <img src="img/logo.png" alt="logo" width={40} height={40} />
+          <img src="img/header/logo.png" alt="logo" width={40} height={40} />
           <div>
             <h3>REACT SNEAKERS</h3>
             <p>Best sneaker store</p>
@@ -19,17 +19,17 @@ const Header = ({ onClickCart }) => {
       </Link>
       <ul className={styles.headerRight}>
         <li onClick={onClickCart}>
-          <img src="img/shop.svg" alt="cart" />
+          <img src="img/header/shop.svg" alt="cart" />
           <span>{totalPrice + " EUR"}</span>
         </li>
         <li>
-          <Link to="/favorites">
-            <img src="img/favorite.svg" alt="favorite" />
+          <Link to="react-sneakers/favorites">
+            <img src="img/header/favorite.svg" alt="favorite" />
           </Link>
         </li>
         <li>
-          <Link to="/orders">
-            <img src="img/user.svg" alt="user" />
+          <Link to="react-sneakers/orders">
+            <img src="img/header/user.svg" alt="user" />
           </Link>
         </li>
       </ul>

@@ -1,18 +1,21 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import classNames from "classnames";
 
 import styles from "./Drawer.module.scss";
-import Info from "../Info";
 import { useCart } from "../../hooks/useCart";
+import AppContext from "../../context";
+import Info from "../Info";
+import GreenButton from "../UI/GreenButton";
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const Drawer = ({ onClose, onRemove, opened }) => {
+const Drawer = ({ onRemove, opened }) => {
   const { cartItems, setCartItems, totalPrice, discount } = useCart();
   const [orderId, setOrderId] = useState(null);
   const [isOrderComplete, setIsOrderComplete] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { setCartOpened } = useContext(AppContext);
   const cartHasItems = cartItems.length > 0;
 
   const clearBackEndCart = async () => {
@@ -60,6 +63,11 @@ const Drawer = ({ onClose, onRemove, opened }) => {
     ));
   };
 
+  const handleClickBack = () => {
+    setCartOpened(false);
+    setIsOrderComplete(false);
+  };
+
   return (
     <div
       className={classNames(styles.overlay, opened && styles.overlayVisible)}
@@ -71,7 +79,7 @@ const Drawer = ({ onClose, onRemove, opened }) => {
             className={styles.removeBtn}
             src="img/removeHover.svg"
             alt="Remove"
-            onClick={onClose}
+            onClick={handleClickBack}
           />
         </h2>
         {cartHasItems ? (
@@ -87,25 +95,29 @@ const Drawer = ({ onClose, onRemove, opened }) => {
                   <b>{discount + " €"}</b>
                 </li>
               </ul>
-              <button
+              <GreenButton
+                parentStyle={styles.greenButton}
+                title="Make order"
+                handleClick={onClickOrder}
                 disabled={isLoading}
-                className={styles.greenButton}
-                onClick={onClickOrder}
-              >
-                <span>Make order</span>
-                <img src="img/arrow.svg" alt="Arrow" />
-              </button>
+              />
             </div>
           </div>
         ) : (
           <Info
             title={isOrderComplete ? "Order is processed!" : "Cart is empty"}
-            image={isOrderComplete ? "img/completeOrder.jpg" : "img/empty.png"}
+            image={
+              isOrderComplete
+                ? "img/info/completeOrder.jpg"
+                : "img/info/empty.png"
+            }
             description={
               isOrderComplete
                 ? `Your order #${orderId} will soon be transferred to courier delivery.`
                 : "Add at least one pair of sneakers to place an order."
             }
+            btnTitle="Back"
+            actionClick={handleClickBack}
           />
         )}
       </div>

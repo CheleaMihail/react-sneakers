@@ -38,7 +38,11 @@ function App() {
     }
 
     fetchData();
-  }, []);
+
+    cartOpened
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "unset");
+  }, [cartOpened]);
 
   const onRemoveItem = (id) => {
     try {
@@ -126,19 +130,15 @@ function App() {
         isItemAdded,
         onAddToFavorite,
         onAddToCart,
+        isLoading,
       }}
     >
       <div className="wrapper">
-        <Drawer
-          items={cartItems}
-          onClose={() => setCartOpened(false)}
-          onRemove={onRemoveItem}
-          opened={cartOpened}
-        />
+        <Drawer items={cartItems} onRemove={onRemoveItem} opened={cartOpened} />
         <Header onClickCart={() => setCartOpened(true)} />
         <Routes>
           <Route
-            path=""
+            path="react-sneakers/"
             exact
             element={
               <Home
@@ -152,8 +152,12 @@ function App() {
               />
             }
           />
-          <Route path="favorites" exact element={<Favorites />} />
-          <Route path="orders" exact element={<Orders />} />
+          <Route
+            path="react-sneakers/favorites"
+            exact
+            element={<Favorites />}
+          />
+          <Route path="react-sneakers/orders" exact element={<Orders />} />
         </Routes>
       </div>
     </AppContext.Provider>
